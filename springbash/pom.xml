@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    ============================================
+    Issam : Projet Spring Bash
+    Gestion des scripts shell avec Spring Boot
+    Auteur : Issam ABOUSSAKKINE
+    Date : 28 Mars 2026
+    ============================================
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Issam : Parent Spring Boot - Gestion des versions -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.5.14-SNAPSHOT</version>
+		<relativePath/>
+	</parent>
+
+	<!-- Issam : Identifiants du projet -->
+	<groupId>ma.ens</groupId>
+	<artifactId>springbash</artifactId>
+	<version>1.0.0-ISSAM</version>
+	<name>springbash-issam</name>
+	<description>Spring Bash - Gestion des scripts shell - Issam ABOUSSAKKINE</description>
+	<url>https://github.com/issam/springbash</url>
+
+	<!-- Issam : Licence MIT -->
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>https://opensource.org/licenses/MIT</url>
+		</license>
+	</licenses>
+
+	<!-- Issam : Informations développeur -->
+	<developers>
+		<developer>
+			<name>Issam ABOUSSAKKINE</name>
+			<email>issam@example.com</email>
+			<organization>ENS</organization>
+		</developer>
+	</developers>
+
+	<!-- Issam : Gestion de la source -->
+	<scm>
+		<connection>scm:git:https://github.com/issam/springbash.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/issam/springbash.git</developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/issam/springbash</url>
+	</scm>
+
+	<!-- Issam : Propriétés du projet -->
+	<properties>
+		<java.version>17</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<!-- Issam : Dépendances du projet -->
+	<dependencies>
+		<!-- Issam : Spring Data JPA - Accès à la base H2 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<!-- Issam : Spring Web - API REST -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- Issam : Spring Boot Actuator - Surveillance de l'application -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<!-- Issam : H2 Database - Base de données en mémoire -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Issam : Lombok - Réduction du code boilerplate -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- Issam : Spring Boot Test - Tests unitaires -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<!-- Issam : Configuration du build -->
+	<build>
+		<plugins>
+			<!-- Issam : Plugin Maven Compiler avec Lombok -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
+			</plugin>
+
+			<!-- Issam : Plugin Spring Boot pour empaqueter l'application -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- Issam : Dépôts Maven pour les versions SNAPSHOT -->
+	<repositories>
+		<repository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
+	</repositories>
+
+	<!-- Issam : Dépôts pour les plugins Maven -->
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
+
+</project>
